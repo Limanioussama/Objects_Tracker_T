@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tracker-d-objects-perdus": {
+      "hosting": {
+        "Objects_Tracker": [
+          "tracker-d-objects-perdus"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tracker-d-objects-perdus"
+  }
+}

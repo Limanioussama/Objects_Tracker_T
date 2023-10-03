@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "Objects_Tracker",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
