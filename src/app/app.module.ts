@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { FirebaseApp } from '@angular/fire/app';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 // Define your Firebase configuration
 const firebaseConfig = environment.firebase;
@@ -26,7 +27,7 @@ const firebaseConfig = environment.firebase;
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase())
   ],
-  providers: [{ provide: FirebaseApp, useFactory: () => initializeApp(firebaseConfig) }],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
 
   bootstrap: [AppComponent]
 })

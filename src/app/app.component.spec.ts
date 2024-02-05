@@ -24,6 +24,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Objects_Tracker app is running!');
+    
+    // Update the querySelector to match the updated template
+    expect(compiled.querySelector('h1')?.textContent).toContain('l7waaa');
   });
 });
