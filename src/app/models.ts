@@ -1,5 +1,3 @@
-export interface Objects_Tracker {
+export interface ObjectsTracker {
     historyInt: { [key: string]: number };
 }
-
-

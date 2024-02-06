@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
-import { map } from 'rxjs/operators';
-import { Objects_Tracker } from './models';
+import { DataService } from './data.service';
+import { ObjectsTracker } from './models';
 
 @Component({
   selector: 'app-root',
@@ -10,24 +9,13 @@ import { Objects_Tracker } from './models';
 })
 export class AppComponent implements OnInit {
   title = 'Objects_Tracker';
-  private historyRef: AngularFireList<any>;
-  public history?: Objects_Tracker[];
-  
-  constructor(private db: AngularFireDatabase) { 
-    this.historyRef = db.list('/test');
-  }
+  public history?: ObjectsTracker[];
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.historyRef
-      .snapshotChanges()
-      .pipe(
-        map((changes) =>
-          changes.map((c) => ({...c.payload.val()}))
-        )
-      )
-      .subscribe((data) => {
-        console.log(data)
-        this.history = data;
-      });
+    this.dataService.getData().subscribe((data: ObjectsTracker) => {
+      this.history = [data];
+    });
   }
 }

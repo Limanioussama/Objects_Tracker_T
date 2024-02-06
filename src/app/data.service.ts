@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  constructor(@Inject(AngularFireDatabase) private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) { }
 
   getData(): Observable<any> {
     return this.db.object('test').valueChanges();
