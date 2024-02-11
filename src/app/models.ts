@@ -1,3 +1,3 @@
 export interface ObjectsTracker {
-    historyInt: { [key: string]: number };
+    sensordat: { [key: string]: number };
 }

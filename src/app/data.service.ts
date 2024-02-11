@@ -10,6 +10,6 @@ export class DataService {
   constructor(private db: AngularFireDatabase) { }
 
   getData(): Observable<any> {
-    return this.db.object('test').valueChanges();
+    return this.db.object('test/sensordat').valueChanges();
   }
 }
